@@ -20,7 +20,7 @@ C_a^2 \\ C_b^2
 \end{pmatrix}
 ```
 
-Here, $C_a$ and $C_b$ are the RMS values for recorded blocks of two channels (a and b), $\alpha$ and $\beta$ refer to gain factors for the crosstalk, $S_a$ and $S_b$ are the "clean" speach signals and $N_a$ and $N_b$ are recording noise levels that covers everything but the crosstalk. We assume $\alpha$, $\beta$, $N_a$ and $N_b$ to be constant over the whole recording and only expect $S$ and $C$ to changed depending on the speech activities.
+Here, $C_a$ and $C_b$ are the RMS values for recorded blocks of two channels (a and b), $\alpha$ and $\beta$ refer to gain factors for the crosstalk, $S_a$ and $S_b$ are the "clean" speach signals and $N_a$ and $N_b$ are recording noise levels that covers everything but the crosstalk. We assume $\alpha$, $\beta$, $N_a$ and $N_b$ to be constant over the whole recording and only expect $S$ and $C$ to change depending on the speech.
 
 Based on the above model, estimates for $\alpha$, $\beta$, $N_a$, $N_b$ and the RMS levels of recorded blocks $C_a$ and $C_b$ we can solve for $S_a$ and $S_b$ which then allows us to derive dynamic noise levels that *include* crosstalk as follows:
 
@@ -42,7 +42,7 @@ T_a^2 \\ T_b^2
 
 These dynamic noise levels are then used as basis for speech activity thresholds for the noise gating effect. The following processing steps are applied to turn RMS levels into a smooth gain function with values between zero and one with which a recorded signal is going to be multiplied to mute and unmute sections:
 
-- bidirectional hysteresis: When the ratio $C/T$ goes above a certain level, the gain is set to 1.0. When it falles below a certain level, the gain is set to 0.0. A gain of 1.0 is extended into both directions untill the level falls below the lower limit.
+- bidirectional hysteresis: When the ratio $C/T$ goes above a certain level, the gain is set to 1.0. When it falles below a certain level, the gain is set to 0.0. A gain of 1.0 is extended into both directions until the level falls below the lower limit.
 - Small gaps (runs of zeros) in the gain function are closed to avoid muting sections below a certain duration
 - The "gain envelope is widened" by adding fade-ins and fade-outs effectively limiting the rate of change
 - The "gain envelope" is smoothed by a 3-tap lowpass filter followed by interpolation using a quadratic B-spline.
