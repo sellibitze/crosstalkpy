@@ -10,7 +10,7 @@ C_a^2 \\ C_b^2
 \end{pmatrix}
 = \begin{bmatrix}
     1 & \alpha^2 \\
-    \beta^2 & 1 \\
+    \beta^2 & 1
 \end{bmatrix}
 \begin{pmatrix}
     S_a^2 \\ S_b^2
@@ -28,9 +28,15 @@ Based on the above model, estimates for $\alpha$, $\beta$, $N_a$, $N_b$ and the 
 \begin{pmatrix}
 T_a^2 \\ T_b^2
 \end{pmatrix}
-= \begin{pmatrix}
-    N_a^2 + \alpha^2 S_b^2 \\
-    N_b^2 + \beta^2 S_a^2 \\
+= \begin{bmatrix}
+    0 & \alpha^2 \\
+    \beta^2 & 0
+\end{bmatrix}
+\begin{pmatrix}
+    S_a^2 \\ S_b^2
+\end{pmatrix}
++ \begin{pmatrix}
+    N_a^2 \\ N_b^2
 \end{pmatrix}
 ```
 
